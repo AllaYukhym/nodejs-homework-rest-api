@@ -1,7 +1,7 @@
 const Joi = require("joi");
-const HttpError = require("../helpers/");
+const { HttpError } = require("../helpers/");
 
-const addSchema = Joi.object({
+const schema = Joi.object({
   name: Joi.string().required(),
   email: Joi.string().required(),
   phone: Joi.string().required(),
@@ -9,9 +9,7 @@ const addSchema = Joi.object({
 
 module.exports = {
   contactValidation: (req, res, next) => {
-    const { error } = addSchema.validate(req.body);
-    console.log("error from schema:", error);
-    console.log("error from schema:", error.message);
+    const { error } = schema.validate(req.body);
 
     if (error) {
       throw HttpError(400, error.message);
