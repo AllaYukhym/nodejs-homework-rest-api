@@ -1,7 +1,8 @@
 const express = require("express");
 const router = express.Router();
 
-const { contactValidation } = require("../../schemas");
+const { contactValidation } = require("../../middlewares");
+const schemas = require("../../schemas");
 const {
   getAllContacts,
   getContact,
@@ -12,7 +13,7 @@ const {
 
 router.get("/", getAllContacts);
 router.get("/:contactId", getContact);
-router.post("/", contactValidation, createContact);
+router.post("/", contactValidation(schemas), createContact);
 router.delete("/:contactId", deleteContact);
-router.put("/:contactId", contactValidation, changeContact);
+router.put("/:contactId", contactValidation(schemas), changeContact);
 module.exports = router;
