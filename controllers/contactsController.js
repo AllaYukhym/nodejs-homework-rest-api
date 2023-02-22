@@ -47,6 +47,16 @@ const deleteContact = async (req, res) => {
   res.status(200).json({ message: "contact deleted" });
 };
 
+// const updateContactStatus = async (req, res) => {
+//   const id = req.params.contactId;
+//   const updatedContact = await updateContact(id, req.body);
+
+//   if (!updatedContact) {
+//     throw HttpError(400, "Not found");
+//   }
+//   res.status(200).json(updatedContact);
+// };
+
 module.exports = {
   getAllContacts: controllerWrapper(getAllContacts),
   getContact: controllerWrapper(getContact),

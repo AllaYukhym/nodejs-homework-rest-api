@@ -13,4 +13,6 @@ router.put(
   contactValidation(schemas.addSchema),
   ctrl.changeContact
 );
+// router.patch("/:contactId/favorite",);
+
 module.exports = router;
