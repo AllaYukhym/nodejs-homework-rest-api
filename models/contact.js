@@ -7,15 +7,13 @@ const contactSchema = new Schema(
   {
     name: {
       type: String,
-      required: true,
+      required: [true, "Set name for contact"],
     },
     email: {
       type: String,
-      required: true,
     },
     phone: {
       type: String,
-      required: true,
       match: /\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/,
     },
     favorite: {
