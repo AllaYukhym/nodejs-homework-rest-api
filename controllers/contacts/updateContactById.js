@@ -1,6 +1,7 @@
 const { Contact } = require("../../models/contact");
 
-const { HttpError, ctrlWrapper } = require("../../helpers");
+const { HttpError } = require("../../helpers/HttpError");
+const { ctrlWrapper } = require("../../helpers/ctrlWrapper");
 
 const updateContactById = async (req, res) => {
   const id = req.params.contactId;

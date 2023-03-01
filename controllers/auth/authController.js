@@ -2,7 +2,8 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
 const { User } = require("../../models/user");
-const { ctrlWrapper, HttpError } = require("../../helpers");
+const { HttpError } = require("../../helpers/HttpError");
+const { ctrlWrapper } = require("../../helpers/ctrlWrapper");
 
 const registration = async (req, res) => {
   const { email, password } = req.body;
@@ -50,7 +51,7 @@ const login = async (req, res) => {
     token,
     user: {
       email,
-      subscription,
+      subscription: user.subscription,
     },
   });
 };
