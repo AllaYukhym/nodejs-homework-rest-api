@@ -1,6 +1,6 @@
 const { Contact } = require("../../models/contact");
 
-const { controllerWrapper } = require("../../helpers");
+const { ctrlWrapper } = require("../../helpers");
 
 const getAllContacts = async (req, res) => {
   const contacts = await Contact.find({}, "-createdAt -updatedAt");
@@ -8,5 +8,5 @@ const getAllContacts = async (req, res) => {
 };
 
 module.exports = {
-  getAllContacts: controllerWrapper(getAllContacts),
+  getAllContacts: ctrlWrapper(getAllContacts),
 };

@@ -1,6 +1,6 @@
 const { Contact } = require("../../models/contact");
 
-const { HttpError, controllerWrapper } = require("../../helpers");
+const { HttpError, ctrlWrapper } = require("../../helpers");
 
 const getContactById = async (req, res) => {
   const id = req.params.contactId;
@@ -13,5 +13,5 @@ const getContactById = async (req, res) => {
 };
 
 module.exports = {
-  getContactById: controllerWrapper(getContactById),
+  getContactById: ctrlWrapper(getContactById),
 };

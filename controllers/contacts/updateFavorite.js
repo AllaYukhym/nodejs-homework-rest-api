@@ -1,6 +1,6 @@
 const { Contact } = require("../../models/contact");
 
-const { HttpError, controllerWrapper } = require("../../helpers");
+const { HttpError, ctrlWrapper } = require("../../helpers");
 
 const updateFavorite = async (req, res) => {
   const id = req.params.contactId;
@@ -15,5 +15,5 @@ const updateFavorite = async (req, res) => {
 };
 
 module.exports = {
-  updateFavorite: controllerWrapper(updateFavorite),
+  updateFavorite: ctrlWrapper(updateFavorite),
 };

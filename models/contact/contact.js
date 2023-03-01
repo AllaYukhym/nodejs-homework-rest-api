@@ -20,6 +20,18 @@ const contactSchema = new Schema(
       type: Boolean,
       default: false,
     },
+    owner: {
+      //      type: SchemaTypes.ObjectId,
+      password: {
+        type: String,
+        required: true,
+      },
+      email: {
+        type: String,
+        required: true,
+      },
+      ref: ["user"],
+    },
   },
   { versionKEY: false, timestamps: true }
 );

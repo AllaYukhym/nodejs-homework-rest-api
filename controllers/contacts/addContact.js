@@ -1,6 +1,6 @@
 const { Contact } = require("../../models/contact");
 
-const { controllerWrapper } = require("../../helpers");
+const { ctrlWrapper } = require("../../helpers");
 
 const addContact = async (req, res) => {
   const newContact = await Contact.create(req.body);
@@ -8,5 +8,5 @@ const addContact = async (req, res) => {
 };
 
 module.exports = {
-  addContact: controllerWrapper(addContact),
+  addContact: ctrlWrapper(addContact),
 };

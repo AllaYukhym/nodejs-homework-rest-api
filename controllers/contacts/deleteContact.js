@@ -1,6 +1,6 @@
 const { Contact } = require("../../models/contact");
 
-const { HttpError, controllerWrapper } = require("../../helpers");
+const { HttpError, ctrlWrapper } = require("../../helpers");
 
 const deleteContact = async (req, res) => {
   const id = req.params.contactId;
@@ -13,5 +13,5 @@ const deleteContact = async (req, res) => {
 };
 
 module.exports = {
-  deleteContact: controllerWrapper(deleteContact),
+  deleteContact: ctrlWrapper(deleteContact),
 };
