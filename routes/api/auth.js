@@ -1,16 +1,16 @@
 const express = require("express");
 const router = express.Router();
 const { validateBody } = require("../../middlewares/validation");
-const isValidToken = require("../../middlewares/isValidToken");
+const authenticate = require("../../middlewares/authenticate");
 const { schemas } = require("../../models/user");
 const ctrl = require("../../controllers/auth");
 
-// router.get("/current", ctrl.);
-// router.get("/logout", ctrl.);
+router.get("/current", authenticate, ctrl.getCurrent);
+router.get("/logout", authenticate, ctrl.logout);
 router.post("/signup", validateBody(schemas.signupSchema), ctrl.registration);
 router.post(
   "/login",
-  isValidToken,
+  authenticate,
   validateBody(schemas.loginSchema),
   ctrl.login
 );

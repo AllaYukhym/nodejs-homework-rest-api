@@ -3,7 +3,14 @@ const { Contact } = require("../../models/contact");
 const { ctrlWrapper } = require("../../helpers/ctrlWrapper");
 
 const getAllContacts = async (req, res) => {
-  const contacts = await Contact.find({}, "-createdAt -updatedAt");
+  const { _id: owner } = req.user;
+  const { page = 1, limit = 10 } = req.query;
+  const skip = (page - 1) * limit;
+  const contacts = await Contact.find({ owner }, "-createdAt -updatedAt", {
+    skip: skip,
+    limit: 2,
+  }).populate();
+
   res.status(200).json(contacts);
 };
 
