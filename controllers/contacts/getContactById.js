@@ -1,10 +1,11 @@
 const { Contact } = require("../../models/contact");
 
-const { HttpError, controllerWrapper } = require("../../helpers");
+const { HttpError } = require("../../helpers/HttpError");
+const { ctrlWrapper } = require("../../helpers/ctrlWrapper");
 
 const getContactById = async (req, res) => {
   const id = req.params.contactId;
-  const contactById = await Contact.findById(id);
+  const contactById = await Contact.findById(id, "-createdAt -updatedAt");
 
   if (!contactById) {
     throw HttpError(404, "Not found");
@@ -13,5 +14,5 @@ const getContactById = async (req, res) => {
 };
 
 module.exports = {
-  getContactById: controllerWrapper(getContactById),
+  getContactById: ctrlWrapper(getContactById),
 };
