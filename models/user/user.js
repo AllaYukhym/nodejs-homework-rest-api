@@ -1,6 +1,5 @@
 const Joi = require("joi");
 const { Schema, model } = require("mongoose");
-// const bcrypt = require("bcrypt");
 
 const { handleMongooseError } = require("../../helpers/handleMongooseError");
 
@@ -26,7 +25,7 @@ const userSchema = new Schema(
     },
     token: {
       type: String,
-      default: null,
+      default: "",
     },
   },
   { versionKEY: false, timestamps: true }

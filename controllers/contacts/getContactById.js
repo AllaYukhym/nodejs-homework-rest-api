@@ -5,7 +5,7 @@ const { ctrlWrapper } = require("../../helpers/ctrlWrapper");
 
 const getContactById = async (req, res) => {
   const id = req.params.contactId;
-  const contactById = await Contact.findById(id);
+  const contactById = await Contact.findById(id, "-createdAt -updatedAt");
 
   if (!contactById) {
     throw HttpError(404, "Not found");
