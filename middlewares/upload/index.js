@@ -1,3 +1,3 @@
 const upload = require("./upload");
 
-module.exports = upload;
+module.exports = { upload };
